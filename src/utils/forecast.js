@@ -15,9 +15,15 @@ const forecast = (lati, longi, callback) => {
             const data = {
                 weather_description: body.current.weather_descriptions[0],
                 curr_temp: body.current.temperature,
-                feelsLike: body.current.feelslike
+                feelsLike: body.current.feelslike,
+                windSpeed: body.current.wind_speed,
+                uv_index: body.current.uv_index,
             };
-            callback(undefined, data);
+
+            const forecastString = 'It is currently ' + data.weather_description
+            + ' The current temperature is: ' + data.curr_temp + ' but it feels like: ' + data.feelsLike + ' the current windspeed is: ' + data.windSpeed 
+            + ' and the UV index is: ' + data.uv_index;
+            callback(undefined, forecastString);
             // console.log(response.body.current.weather_descriptions[0] + 
             //     `. It is currently ${response.body.current.temperature} degrees out. 
             //     It feels like ${response.body.current.feelslike} degrees out.`);

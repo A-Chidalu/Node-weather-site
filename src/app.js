@@ -61,8 +61,7 @@ app.get('/weather', (req, res) => {
             // console.log(location);
             // console.log(forecastData);
             res.send({
-                forecast: 'It is currently ' + forecastData.weather_description
-                + ' The current temperature is: ' + forecastData.curr_temp + ' but it feels like: ' + forecastData.feelsLike,
+                forecast: forecastData,
                 location,
                 address
             })
