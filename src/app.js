@@ -73,7 +73,7 @@ app.get('/weather', (req, res) => {
 
 app.get('/help', (req, res) => {
     res.render('help', {
-        helpText: 'This is some helpful text',
+        helpText: 'For more help go to my github repository @A-Chidalu',
         title: 'Help',
         name: 'Chiddy A'
     });
