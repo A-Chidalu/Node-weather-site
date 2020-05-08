@@ -24,14 +24,14 @@ app.use(express.static(publicDirectoryPath));
 app.get('/', (req, res) => {
     res.render('index', {
         title: 'Weather',
-        name: 'Chiddy A'
+        name: 'Chidalu A'
     });
 });
 
 app.get('/about', (req, res) => {
     res.render('about', {
         title: 'About me',
-        name: 'Chiddy A'
+        name: 'Chidalu A'
     });
 });
 
@@ -74,7 +74,7 @@ app.get('/help', (req, res) => {
     res.render('help', {
         helpText: 'For more help go to my github repository @A-Chidalu',
         title: 'Help',
-        name: 'Chiddy A'
+        name: 'Chidalu A'
     });
 });
 
