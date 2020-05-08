@@ -1,7 +1,8 @@
 const request = require('request');
+const API_KEYS = require('config');
 
 const forecast = (lati, longi, callback) => {
-    const url = `http://api.weatherstack.com/current?access_key=76bc2dc5cdc08a4f3fbaebe49075abe6&query=${lati},${longi}&units=f`;
+    const url = `http://api.weatherstack.com/current?access_key=${API_KEYS.weatherKey}&query=${lati},${longi}&units=f`;
     request({ url, json: true }, (error, { body }) => {
         if (error) { //error's usually happen on lower level os issues like lack of internet connection
             //console.log('Unable to connect to weather service!');
