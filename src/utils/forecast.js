@@ -1,8 +1,9 @@
 const request = require('request');
-const API_KEYS = require('./config');
+require('dotenv').config();
 
 const forecast = (lati, longi, callback) => {
-    const url = `http://api.weatherstack.com/current?access_key=${API_KEYS.weatherKey}&query=${lati},${longi}&units=f`;
+    //console.log(typeof process.env.WEATHER_KEY);
+    const url = `http://api.weatherstack.com/current?access_key=${process.env.WEATHER_KEY}&query=${lati},${longi}&units=f`;
     request({ url, json: true }, (error, { body }) => {
         if (error) { //error's usually happen on lower level os issues like lack of internet connection
             //console.log('Unable to connect to weather service!');
@@ -22,7 +23,7 @@ const forecast = (lati, longi, callback) => {
             };
 
             const forecastString = 'It is currently ' + data.weather_description
-            + ' The current temperature is: ' + data.curr_temp + ' but it feels like: ' + data.feelsLike + ' the current windspeed is: ' + data.windSpeed 
+            + ' The current temperature is: ' + data.curr_temp + '  (F) but it feels like: ' + data.feelsLike + ' the current windspeed is: ' + data.windSpeed 
             + ' and the UV index is: ' + data.uv_index;
             callback(undefined, forecastString);
             // console.log(response.body.current.weather_descriptions[0] + 
